@@ -1,21 +1,34 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addCar } from "../store";
 function CarForm() {
-
+    const inputRef = useRef(null)
     const [name, setName] = useState('')
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState('')
 
     const dispatch = useDispatch()
+    const carsLists = useSelector((state) => state.cars)
 
     const handleSubmit = function(e) {
         e.preventDefault()
         console.log("Inside handle submit - ", name, price)
-        const payload = {
-            id: Math.ceil(Math.random() * 100),
-            name, price
+        if (!name || !price) {
+            alert("Please enter value in the required field!!")
         }
-        dispatch(addCar(payload))
+        else if (carsLists.filter(car => car.name == name).length) {
+            alert(`Car name ${name} is already exists in your car list`)
+        }
+        else {
+            const payload = {
+                id: crypto.randomUUID(),
+                name, price
+            }
+            dispatch(addCar(payload))
+            
+            setName('')
+            setPrice('')
+            inputRef.current.focus();
+        }
     }
     const handleChange = (e) => {
         if (e.target.name == "name") {
@@ -26,11 +39,11 @@ function CarForm() {
     }
     return (
         <form className="car-form" onSubmit={handleSubmit}>
-            <div>
+            <div className="mr-40">
                 <label>Car Name</label>
-                <input type="text" name="name" onChange={handleChange} value={name} />
+                <input type="text" ref={inputRef} name="name" onChange={handleChange} value={name} />
             </div>
-            <div>
+            <div className="mr-40">
                 <label>Car Value</label>
                 <input type="number" name="price" onChange={handleChange} value={price} />
             </div>

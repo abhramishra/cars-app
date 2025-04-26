@@ -8,7 +8,7 @@ const carSlice = createSlice({
             state.push(action.payload)
         },
         removeCar(state, action) {
-
+            return state.filter(car => car.id !== action.payload)
         }
     }
 })

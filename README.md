@@ -1,12 +1,39 @@
-# React + Vite
+# 🚗 Cars App (Redux Toolkit Demo)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React application where users can **add**, **remove**, and **search cars** using **Redux Toolkit** for state management.
 
-Currently, two official plugins are available:
+This project is a hands-on demo to understand and apply the core concepts of Redux Toolkit in a real-world scenario.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Add a new car with name and price
+- Display the list of added cars
+- Remove a car from the list
+- Search cars by name
+- State managed using Redux Toolkit
+
+---
+
+## 🛠️ Tech Stack
+
+- React
+- Redux Toolkit
+- React-Redux
+- CSS (or Tailwind/your preferred styling)
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/your-username/cars-app.git
+   cd cars-app
+
+2. **Install dependency**
+    npm install
+
+3. **Run the app**
+    npm run dev
